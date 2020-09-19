@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { render } from 'react-dom';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -45,6 +46,22 @@ const BootstrapInput = withStyles((theme) => ({
     },
 }))(InputBase);
 
+class Clock extends Component {
+    constructor() {
+        var today = new Date(),
+
+            date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+        this.state = {
+
+            currentDate: date
+
+        }
+
+    }
+}
+
+
 const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
@@ -55,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SimpleSelect() {
+function ToDoForm() {
     const classes = useStyles();
     const [cla, setClass] = React.useState('');
 
@@ -63,47 +80,42 @@ export default function SimpleSelect() {
         setClass(event.target.value);
     };
 
-    function ClassForm() {
-        const classes = useStyles();
-        const [age, setAge] = React.useState('');
-        const handleChange = (event) => {
-            setAge(event.target.value);
-        };
+    return (
+        <div>
+            <FormControl className={classes.margin}>
+                <InputLabel htmlFor="TaskName">Task</InputLabel>
+                <BootstrapInput id="TaskName" />
+            </FormControl>
+            <FormControl className={classes.formControl}>
+                <InputLabel id="className">Class</InputLabel>
+                <Select
+                    labelId="className"
+                    id="name"
+                    value={cla}
+                    onChange={handleChange}
+                >
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+            </FormControl>
+            <form className={classes.container} noValidate>
+                <TextField
+                    id="datetime-local"
+                    label="Due Date"
+                    type="datetime-local"
+                    defaultValue="2020-01-01T11:59"
+                    className={classes.textField}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+            </form>
+            <p>{this.date.currentDate}</p>
+            <Button variant="contained">Submit</Button>
+        </div>
+    );
 
-        return (
-            <div>
-                <FormControl className={classes.margin}>
-                    <InputLabel htmlFor="TaskName">Task</InputLabel>
-                    <BootstrapInput id="TaskName" />
-                </FormControl>
-                <FormControl className={classes.formControl}>
-                    <InputLabel id="className">Age</InputLabel>
-                    <Select
-                        labelId="className"
-                        id="name"
-                        value={cla}
-                        onChange={handleChange}
-                    >
-                        <MenuItem value={10}>Ten</MenuItem>
-                        <MenuItem value={20}>Twenty</MenuItem>
-                        <MenuItem value={30}>Thirty</MenuItem>
-                    </Select>
-                </FormControl>
-                <form className={classes.container} noValidate>
-                    <TextField
-                        id="datetime-local"
-                        label="Due Date"
-                        type="datetime-local"
-                        defaultValue="2020-01-01T11:59"
-                        className={classes.textField}
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                    />
-                </form>
-                <Button variant="contained">Submit</Button>
-            </div>
-        );
-    }
 }
-    // export default ClassForm;
+
+export default ToDoForm;
