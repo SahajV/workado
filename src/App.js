@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import SignIn from "./components/auth/SignIn";
 import Logout from "./components/auth/Logout";
 import useUser from "./_hooks/useUser.tsx";
+import ClassForm from './components/ClassForm.js'
 
 export default function CustomRouter() {
   // useUser is a custom hook (src/_hooks/useUser.tsx)
@@ -28,6 +29,12 @@ export default function CustomRouter() {
           </Route>
           <Route path="/user">
             <UserInfo />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="/classForm">
+            <ClassForm />
           </Route>
         </Switch>
       ) : (
