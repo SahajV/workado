@@ -1,12 +1,8 @@
 import React from 'react'
-<<<<<<< HEAD
 import { Button, Icon, ButtonGroup } from 'rsuite';
-=======
 import {auth, google, db} from "../Firebase"
-import { Button, Icon } from 'rsuite';
 import useUser from "../_hooks/useUser";
 
->>>>>>> 79c97e56e67608ea5ffc003a800b55a81066228b
 
 class ClassForm extends React.Component {
     constructor(props) {

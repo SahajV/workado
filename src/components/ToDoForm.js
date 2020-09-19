@@ -45,6 +45,7 @@ class ToDoForm extends React.Component {
                         type="time"
                     />
                     <br/>
+                    <br/>
                     <ButtonGroup>
                         <Button appearance="primary" color="red" type="submit"><Icon icon="angle-double-right" /> Submit</Button>
                         <Button appearance="ghost" color="red" type="reset">Clear</Button>
