@@ -1,13 +1,25 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Button, Icon, ButtonGroup } from 'rsuite';
+=======
+import {auth, google, db} from "../Firebase"
+import { Button, Icon } from 'rsuite';
+import useUser from "../_hooks/useUser";
+
+>>>>>>> 79c97e56e67608ea5ffc003a800b55a81066228b
 
 class ClassForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { class: '', instructor: '', location: '', startTime: '', endTime: '', dow: '', period: '' };
+        this.state = { class: '', instructor: '', location: '', startTime: '', endTime: '', dow: '', period: ''};
     }
     mySubmitHandler = (event) => {
         event.preventDefault();
+        console.log(event)
+        db.collection("users").doc("t1EF5NoDCJMX6leq0bGz9xS3Kjz1").get().then((doc) => {
+            console.log(doc.data())
+        })
+
         alert("You are submitting " + JSON.stringify(this.state));
     }
     myChangeHandler = (event) => {

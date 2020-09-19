@@ -11,8 +11,8 @@ export default function Testing() {
   
   return isLoggedIn() ? (
     <div>
-        <ClassForm />
-        <ToDoForm />
+      <ClassForm />
+      <ToDoForm />
       <Link to="/logout">sign out.</Link>
     </div>
   ) : (

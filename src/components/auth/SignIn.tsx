@@ -1,8 +1,7 @@
 import * as React from "react";
 import { auth, google, db } from "../../Firebase";
 
-import { Container, Header, Content, Footer, Navbar, 
-  FlexboxGrid, ControlLabel, FormGroup, ButtonToolbar, Button, Form, FormControl, Panel } from 'rsuite';
+import { Container, Content, FlexboxGrid, FormGroup, ButtonToolbar, Button, Form, Panel } from 'rsuite';
 
 enum INPUTS {
   email,
@@ -10,8 +9,8 @@ enum INPUTS {
 }
 
 export default function SignIn() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [, setEmail] = React.useState("");
+  const [, setPassword] = React.useState("");
   const [errorResponse, setErrorResponse] = React.useState("");
 
   const clearError = () => {
@@ -20,25 +19,6 @@ export default function SignIn() {
     }
   };
 
-  /**
-   * The React.ChangeEvent<HTMLInputElement> is from typescript and just shows
-   * what value is getting passed in, so you dont have to remember
-   * in this case its a "ChangeEvent" coming from "onChange"
-   */
-  const updateValue = (
-    type: INPUTS,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    clearError();
-    switch (type) {
-      case INPUTS.email:
-        setEmail(e.target.value);
-        break;
-      case INPUTS.password:
-        setPassword(e.target.value);
-        break;
-    }
-  };
 
   // const trySignIn = async () => {
   //   auth.signInWithEmailAndPassword(email, password).catch((err) => {
@@ -63,7 +43,6 @@ export default function SignIn() {
   // };
 
   const trySignInWithGoogle = async () => {
-    console.log('trying sign in')
     auth.signInWithPopup(google).catch((err) => {
       switch (err.code) {
         default:
@@ -71,15 +50,13 @@ export default function SignIn() {
       }
     }).then((result) => {
       let res = JSON.parse(JSON.stringify(result));
-      console.log(res);
       if ( res.additionalUserInfo.isNewUser ) {
         db.collection("users").doc(res.user.uid).set({
-          classes: [],
+          classes: {},
           assignments: []
         });
       }
     });
-    console.log('done')
   };
 
   return (

@@ -1,8 +1,14 @@
 import { Modal, Button, ButtonToolbar} from 'rsuite';
 import * as React from "react";
+<<<<<<< HEAD
 import ToDoFrom from './ToDoForm'
 
 class RsModal extends React.Component {
+=======
+import ToDoForm from './ToDoForm'
+
+class ToDoModal extends React.Component {
+>>>>>>> 79c97e56e67608ea5ffc003a800b55a81066228b
     constructor(props) {
       super(props);
       this.state = {
@@ -21,15 +27,26 @@ class RsModal extends React.Component {
       return (
         <div className="modal-container">
           <ButtonToolbar>
+<<<<<<< HEAD
             <Button color="green" onClick={this.open}> Add Class</Button>
+=======
+            <Button color="green" onClick={this.open}> Add Assignment</Button>
+>>>>>>> 79c97e56e67608ea5ffc003a800b55a81066228b
           </ButtonToolbar>
   
           <Modal show={this.state.show} onHide={this.close}>
             <Modal.Header>
+<<<<<<< HEAD
               <Modal.Title>Add Assignment</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <ToDoFrom />
+=======
+              <Modal.Title>Add Class</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <ToDoForm />
+>>>>>>> 79c97e56e67608ea5ffc003a800b55a81066228b
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.close} color="green" appearance="primary">
@@ -45,4 +62,8 @@ class RsModal extends React.Component {
     }
   }
   
+<<<<<<< HEAD
 export default RsModal
+=======
+export default ToDoModal
+>>>>>>> 79c97e56e67608ea5ffc003a800b55a81066228b
