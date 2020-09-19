@@ -1,3 +1,2 @@
-If you want to get it running do:
-
-yarn start
+1. `yarn` to install all dependencies
+2. `yarn start` to run website
