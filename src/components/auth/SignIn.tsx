@@ -1,6 +1,9 @@
 import * as React from "react";
 import { auth, google } from "../../firebase";
 
+import { Container, Header, Content, Footer, Navbar, 
+  FlexboxGrid, ControlLabel, FormGroup, ButtonToolbar, Button, Form, FormControl, Panel } from 'rsuite';
+
 enum INPUTS {
   email,
   password,
@@ -37,27 +40,27 @@ export default function SignIn() {
     }
   };
 
-  const trySignIn = async () => {
-    auth.signInWithEmailAndPassword(email, password).catch((err) => {
-      setPassword("");
-      switch (err.code) {
-        default:
-          setErrorResponse("An unknown error has occurred");
-      }
-    });
-  };
+  // const trySignIn = async () => {
+  //   auth.signInWithEmailAndPassword(email, password).catch((err) => {
+  //     setPassword("");
+  //     switch (err.code) {
+  //       default:
+  //         setErrorResponse("An unknown error has occurred");
+  //     }
+  //   });
+  // };
 
-  const trySignUp = async () => {
-    auth.createUserWithEmailAndPassword(email, password).catch((err) => {
-      switch (err.code) {
-        case "auth/email-already-in-use":
-          setErrorResponse(err.message);
-          break;
-        default:
-          setErrorResponse("An unknown error has occurred");
-      }
-    });
-  };
+  // const trySignUp = async () => {
+  //   auth.createUserWithEmailAndPassword(email, password).catch((err) => {
+  //     switch (err.code) {
+  //       case "auth/email-already-in-use":
+  //         setErrorResponse(err.message);
+  //         break;
+  //       default:
+  //         setErrorResponse("An unknown error has occurred");
+  //     }
+  //   });
+  // };
 
   const trySignInWithGoogle = async () => {
     auth.signInWithPopup(google).catch((err) => {
@@ -69,23 +72,32 @@ export default function SignIn() {
   };
 
   return (
-    <div className="sign_in">
-      <span>Email:</span>
-      <input
-        type="text"
-        value={email}
-        onChange={updateValue.bind(null, INPUTS.email)}
-      />
-      <span>Password:</span>
-      <input
-        type="password"
-        value={password}
-        onChange={updateValue.bind(null, INPUTS.password)}
-      />
-      <div className="error_response">{errorResponse}</div>
-      <button onClick={trySignIn}>Sign in</button>{" "}
-      <button onClick={trySignUp}>Sign up</button>
-      <button onClick={trySignInWithGoogle}>Or sign in with Google</button>
+    <div className="show-fake-browser ">
+      <Container>
+        <Header>
+          <Navbar appearance="inverse">
+            <Navbar.Header>
+              <a className="navbar-brand logo">Educado</a>
+            </Navbar.Header>
+          </Navbar>
+        </Header>
+        <Content>
+          <FlexboxGrid justify="center">
+            <FlexboxGrid.Item colspan={12}>
+              <Panel header={<h3>Sign In</h3>} bordered>
+                <Form fluid>
+                  <FormGroup>
+                    <ButtonToolbar>
+                      <Button color="red" onClick={trySignInWithGoogle}>Sign in with Google</Button>
+                    </ButtonToolbar>
+                  </FormGroup>
+                </Form>
+              </Panel>
+            </FlexboxGrid.Item>
+          </FlexboxGrid>
+        </Content>
+        <Footer>Copyright 2020</Footer>
+      </Container>
     </div>
-  );
+  )
 }
