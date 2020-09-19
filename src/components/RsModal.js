@@ -21,7 +21,7 @@ class RsModal extends React.Component {
       return (
         <div className="modal-container">
           <ButtonToolbar>
-            <Button onClick={this.open}> Add Class</Button>
+            <Button color="green" onClick={this.open}> Add Class</Button>
           </ButtonToolbar>
   
           <Modal show={this.state.show} onHide={this.close}>
@@ -32,9 +32,9 @@ class RsModal extends React.Component {
               <ClassForm />
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={this.close} appearance="primary">
+              <Button onClick={this.close} color="green" appearance="primary">
                 Close
-              </Button>
+              </Button >
               {/* <Button onClick={this.close} appearance="subtle">
                 Cancel
               </Button> */}
