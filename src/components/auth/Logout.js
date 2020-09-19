@@ -1,5 +1,5 @@
 import * as React from "react";
-import { auth } from "../../firebase";
+import { auth } from "../../Firebase";
 export default function Logout() {
     React.useEffect(() => {
         auth.signOut();

@@ -27,7 +27,7 @@ export default function NavbarInstance() {
           </Dropdown>
         </Nav> */}
         <Nav pullRight>
-          <Nav.Item icon={<Icon icon="sign-out" />} ><Link to="/logout">Sign out</Link></Nav.Item>
+        <Link to="/logout"><Nav.Item icon={<Icon icon="sign-out" />} >Sign out</Nav.Item></Link>
         </Nav>
       </Navbar.Body>
     </Navbar>

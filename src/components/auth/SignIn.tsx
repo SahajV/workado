@@ -1,5 +1,5 @@
 import * as React from "react";
-import { auth, google } from "../../firebase";
+import { auth, google } from "../../Firebase";
 
 import { Container, Header, Content, Footer, Navbar, 
   FlexboxGrid, ControlLabel, FormGroup, ButtonToolbar, Button, Form, FormControl, Panel } from 'rsuite';
@@ -74,13 +74,6 @@ export default function SignIn() {
   return (
     <div className="login-page">
       <Container>
-        <Header>
-          <Navbar appearance="inverse">
-            <Navbar.Header>
-              <a className="navbar-brand logo">Educado</a>
-            </Navbar.Header>
-          </Navbar>
-        </Header>
         <Content>
           <FlexboxGrid justify="center">
             <FlexboxGrid.Item colspan={12}>
@@ -96,7 +89,6 @@ export default function SignIn() {
             </FlexboxGrid.Item>
           </FlexboxGrid>
         </Content>
-        <Footer>Copyright 2020</Footer>
       </Container>
     </div>
   )
