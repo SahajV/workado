@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import useUser from "../_hooks/useUser";
 import RsModal from "./RsModal"
+import ToDoModal from "./ToDoModal"
 import NavbarInstance from "./NavbarInstance";
 
 import { Container, Header, Content, Grid, Row, Col, Panel, PanelGroup} from 'rsuite';
@@ -32,6 +33,7 @@ export default function Dashboard() {
                                 <PanelGroup accordion defaultActiveKey={1} bordered>
                                     <Panel header="Assignments" eventKey={1}>
                                         you do not have any assignments, please add some:
+                                        <ToDoModal />
                                     </Panel>
                                     <Panel header="List of All Classes" eventKey={2}>
                                         you do not have a next class, please add a class:
