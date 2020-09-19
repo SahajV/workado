@@ -6,9 +6,11 @@ export default function UserInfo() {
   const { isLoggedIn, userState } = useUser();
   return isLoggedIn() ? (
     <div>
-      You're on the user info page and your email is <b>{userState.email}</b>.
-      If you see this, that means you have succesfully logged in! Alternatively
-      you can <Link to="/logout">sign out.</Link>
+
+      <h2>{userState.email}</h2>
+      <h2>{userState.uid}</h2>
+      <img src={userState.photoURL} alt="Italian Trulli"></img>
+      <Link to="/logout">sign out.</Link>
     </div>
   ) : (
     <div>
