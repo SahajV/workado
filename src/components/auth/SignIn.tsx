@@ -42,7 +42,7 @@ export default function SignIn() {
       setPassword("");
       switch (err.code) {
         default:
-          setErrorResponse("An unknown error has occured");
+          setErrorResponse("An unknown error has occurred");
       }
     });
   };

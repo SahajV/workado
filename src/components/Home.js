@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import useUser from "../_hooks/useUser";
+import ClassForm from "./ClassForm";
 
 export default function Home() {
   // import just the isLoggedIn function to check whether or not the user is logged in
@@ -13,6 +14,7 @@ export default function Home() {
   ) : (
     <div>
       You are signed in! Check out your <Link to="/user">user page</Link>
+      <ClassForm />
     </div>
   );
 }
