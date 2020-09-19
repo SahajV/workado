@@ -1,15 +1,14 @@
-import * as React from "react";
 import { Link } from "react-router-dom";
-import useUser from "../../_hooks/useUser";
+import useUser from "../_hooks/useUser";
+import React from "react";
+import ClassForm from "./ClassForm";
+import ToDoForm from "./ToDoForm"
 
-export default function UserInfo() {
+export default function Testing() {
   const { isLoggedIn, userState } = useUser();
   return isLoggedIn() ? (
     <div>
-      <h2>{userState.email}</h2>
-      <h2>{userState.uid}</h2>
-      <img src={userState.photoURL} alt="Italian Trulli"></img>
-      <br></br>
+        <ClassForm />
       <Link to="/logout">sign out.</Link>
     </div>
   ) : (

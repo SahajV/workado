@@ -5,12 +5,12 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import UserInfo from "./components/auth/UserInfo";
+import Dashboard from "./components/Dashboard"
 import Home from "./components/Home";
 import SignIn from "./components/auth/SignIn";
 import Logout from "./components/auth/Logout";
 import useUser from "./_hooks/useUser.tsx";
-import ClassForm from './components/ClassForm.js'
+import Testing from "./components/Testing"
 
 export default function CustomRouter() {
   // useUser is a custom hook (src/_hooks/useUser.tsx)
@@ -27,14 +27,14 @@ export default function CustomRouter() {
           <Route path="/signin">
             <Redirect to="/user"></Redirect>
           </Route>
-          <Route path="/user">
-            <UserInfo />
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/testing">
+            <Testing />
           </Route>
           <Route path="/">
             <Home />
-          </Route>
-          <Route path="/classForm">
-            <ClassForm />
           </Route>
         </Switch>
       ) : (
