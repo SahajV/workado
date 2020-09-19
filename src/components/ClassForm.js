@@ -1,4 +1,11 @@
 import React from 'react'
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 import useUser from "../_hooks/useUser";
 
 const BootstrapInput = withStyles((theme) => ({
@@ -50,11 +57,16 @@ function ClassForm() {
   };
 
 return( 
-    <form>
-        <input type="text">Instructor</input>
-        <input type="text">Location</input>
-
-    </form>
+    <div>
+        <FormControl className={classes.margin}>
+            <InputLabel htmlFor="ClassName">Class</InputLabel>
+            <BootstrapInput id="ClassName" />
+        </FormControl>
+        <FormControl className={classes.margin}>
+            <InputLabel htmlFor="InstructorName">Instructor</InputLabel>
+            <BootstrapInput id="InstructorName" />
+        </FormControl>
+    </div>
     );
 }
 
