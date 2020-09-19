@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Icon } from 'rsuite';
+import { Button, Icon, ButtonGroup } from 'rsuite';
 
 class ClassForm extends React.Component {
     constructor(props) {
@@ -65,7 +65,10 @@ class ClassForm extends React.Component {
                 />
                 <br></br>
                 <br></br>
-                <Button appearance="ghost" color = "red" type="submit"><Icon icon="angle-double-right"  /> Submit</Button>
+                <ButtonGroup>
+                <Button appearance="primary" color = "red" type="submit"><Icon icon="angle-double-right"  /> Submit</Button>
+                <Button appearance="ghost" color = "red" type="reset"><Icon icon="angle-double-right"  /> Clear</Button>
+                </ButtonGroup>
             </form>
         );
     }
