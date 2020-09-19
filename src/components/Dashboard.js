@@ -10,7 +10,6 @@ export default function Dashboard() {
     const { isLoggedIn, userState } = useUser();
     return isLoggedIn() ? (
         <div>
-
             <Container>
                 <Header>
                     <NavbarInstance />

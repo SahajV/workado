@@ -6,7 +6,6 @@ import {
   Redirect,
 } from "react-router-dom";
 import Dashboard from "./components/Dashboard"
-import Home from "./components/Home";
 import SignIn from "./components/auth/SignIn";
 import Logout from "./components/auth/Logout";
 import useUser from "./_hooks/useUser.tsx";
@@ -18,36 +17,25 @@ export default function CustomRouter() {
 
   return (
     <Router>
-      {/* 👇 this is a ternary operator */}
       {!loaded ? null : isLoggedIn() ? (
         <Switch>
           <Route path="/logout">
             <Logout />
           </Route>
-          <Route path="/signin">
-            <Redirect to="/user"></Redirect>
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
           <Route path="/testing">
             <Testing />
           </Route>
           <Route path="/">
-            <Home />
+            <Dashboard />
           </Route>
         </Switch>
       ) : (
           <Switch>
-            <Route path="/signin">
-              <SignIn />
-            </Route>
-
             <Route path="/logout">
-              <Redirect to="/signin" />
+              <Redirect to="/" />
             </Route>
             <Route path="/">
-              <Home />
+              <SignIn />
             </Route>
           </Switch>
         )}
