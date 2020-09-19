@@ -1,6 +1,5 @@
 import { Modal, Button, ButtonToolbar} from 'rsuite';
 import * as React from "react";
-import 'rsuite/dist/styles/rsuite-dark.css';
 import ClassForm from './ClassForm'
 
 class RsModal extends React.Component {
