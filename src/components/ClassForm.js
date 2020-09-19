@@ -60,39 +60,65 @@ function ClassForm() {
 
 return( 
     <div>
-        <FormControl className={classes.margin}>
-            <InputLabel htmlFor="ClassName">Class</InputLabel>
-            <BootstrapInput id="name" />
-        </FormControl>
-        <FormControl className={classes.margin}>
-            <InputLabel htmlFor="InstructorName">Instructor</InputLabel>
-            <BootstrapInput id="instructor" />
-        </FormControl>
-        <FormControl className={classes.margin}>
-            <InputLabel htmlFor="Location">Location</InputLabel>
-            <BootstrapInput id="location" />
-        </FormControl>
-        <TextField
-            id="start"
-            label="Start Time"
-            type="datetime-local"
-            defaultValue="2020-09-20T09:00"
-            className={classes.textField}
-            InputLabelProps={{
-            shrink: true,
-            }}
-        />
-        <TextField
-            id="end"
-            label="End Time"
-            type="datetime-local"
-            defaultValue="2020-09-20T08:00"
-            className={classes.textField}
-            InputLabelProps={{
-            shrink: true,
-            }}
-        />
-        <Button type="submit" id="submit">Submit</Button>
+        <form>
+            <FormControl className={classes.margin}>
+                <InputLabel htmlFor="ClassName">Class</InputLabel>
+                <BootstrapInput id="name" />
+            </FormControl>
+            <FormControl className={classes.margin}>
+                <InputLabel htmlFor="InstructorName">Instructor</InputLabel>
+                <BootstrapInput id="instructor" />
+            </FormControl>
+            <FormControl className={classes.margin}>
+                <InputLabel htmlFor="Location">Location</InputLabel>
+                <BootstrapInput id="location" />
+            </FormControl>
+            <form className={classes.container} noValidate>
+                <TextField
+                    id="start"
+                    type="time"
+                    label="Start Time"
+                    defaultValue="08:00"
+                    className={classes.textField}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    inputProps={{
+                        step: 300, // 5 min
+                    }}
+                />
+            </form>
+            <form className={classes.container} noValidate>
+                <TextField
+                    id="end"
+                    type="time"
+                    label="End Time"
+                    defaultValue="09:00"
+                    className={classes.textField}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                    inputProps={{
+                        step: 300, // 5 min
+                    }}
+                />
+            </form>  
+            <form>
+                <label>
+                    Day
+                    <select id="day" name="day">
+                        <option value="monday">Monday</option>
+                        <option value="tuesday">Tuesday</option>
+                        <option value="wednesday">Wednesday</option>
+                        <option value="thursday">Thursday</option>
+                        <option value="friday">Friday</option>
+                        <option value="saturday">Saturday</option>
+                        <option value="sunday">Sunday</option>
+                    </select>
+                </label>
+            </form>
+            <Button type="submit" id="submit">Submit</Button>
+        </form>
     </div>
     );
 }
