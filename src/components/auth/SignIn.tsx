@@ -1,5 +1,5 @@
 import * as React from "react";
-import { auth, google } from "../../Firebase";
+import { auth, google, db } from "../../Firebase";
 
 import { Container, Header, Content, Footer, Navbar, 
   FlexboxGrid, ControlLabel, FormGroup, ButtonToolbar, Button, Form, FormControl, Panel } from 'rsuite';
@@ -63,12 +63,23 @@ export default function SignIn() {
   // };
 
   const trySignInWithGoogle = async () => {
+    console.log('trying sign in')
     auth.signInWithPopup(google).catch((err) => {
       switch (err.code) {
         default:
           setErrorResponse("An unknown error has occurred");
       }
+    }).then((result) => {
+      let res = JSON.parse(JSON.stringify(result));
+      console.log(res);
+      if ( res.additionalUserInfo.isNewUser ) {
+        db.collection("users").doc(res.user.uid).set({
+          classes: [],
+          assignments: []
+        });
+      }
     });
+    console.log('done')
   };
 
   return (
