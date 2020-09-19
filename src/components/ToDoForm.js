@@ -90,5 +90,5 @@ export default function SimpleSelect() {
             </div>
         );
     }
-
+}
     export default ClassForm;
