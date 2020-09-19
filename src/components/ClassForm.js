@@ -1,4 +1,11 @@
 import React from 'react'
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
 import useUser from "../_hooks/useUser";
 import TextField from '@material-ui/core/TextField';
 
@@ -51,31 +58,16 @@ function ClassForm() {
   };
 
 return( 
-    // userState, 
-    <form>
-        <input type="text" id="period">ID (can be period, block number, etc.)</input>
-        <input type="text" id="instructor">Instructor</input>
-        <input type="text" id="location">Location</input>
-        <input type="text" id="name">Class Name</input>
-        <TextField
-            id="start"
-            label="Start Time"
-            type="datetime-local"
-            defaultValue="2020-09-19T08:00"
-            InputLabelProps={{
-            shrink: true,
-            }}
-        />
-        <TextField
-            id="end"
-            label="End Time"
-            type="datetime-local"
-            defaultValue="2020-09-19T09:00"
-            InputLabelProps={{
-            shrink: true,
-            }}
-        />
-    </form>
+    <div>
+        <FormControl className={classes.margin}>
+            <InputLabel htmlFor="ClassName">Class</InputLabel>
+            <BootstrapInput id="ClassName" />
+        </FormControl>
+        <FormControl className={classes.margin}>
+            <InputLabel htmlFor="InstructorName">Instructor</InputLabel>
+            <BootstrapInput id="InstructorName" />
+        </FormControl>
+    </div>
     );
 }
 
