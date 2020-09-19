@@ -7,6 +7,7 @@ return(
         <input type="text">Location</input>
 
     </form>
-    )
+    );
 }
-export default ClassForm
+
+export default ClassForm;
