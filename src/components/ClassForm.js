@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 import useUser from "../_hooks/useUser";
+import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField';
 
 const BootstrapInput = withStyles((theme) => ({
@@ -72,6 +73,16 @@ return(
             <BootstrapInput id="location" />
         </FormControl>
         <TextField
+            id="start"
+            label="Start Time"
+            type="datetime-local"
+            defaultValue="2020-09-20T09:00"
+            className={classes.textField}
+            InputLabelProps={{
+            shrink: true,
+            }}
+        />
+        <TextField
             id="end"
             label="End Time"
             type="datetime-local"
@@ -81,6 +92,7 @@ return(
             shrink: true,
             }}
         />
+        <Button type="submit" id="submit">Submit</Button>
     </div>
     );
 }
