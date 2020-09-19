@@ -72,7 +72,7 @@ export default function SignIn() {
   };
 
   return (
-    <div className="show-fake-browser ">
+    <div className="login-page">
       <Container>
         <Header>
           <Navbar appearance="inverse">
@@ -84,7 +84,7 @@ export default function SignIn() {
         <Content>
           <FlexboxGrid justify="center">
             <FlexboxGrid.Item colspan={12}>
-              <Panel header={<h3>Sign In</h3>} bordered>
+              <Panel header={<h3>Login</h3>} bordered>
                 <Form fluid>
                   <FormGroup>
                     <ButtonToolbar>
