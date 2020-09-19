@@ -2,6 +2,11 @@ import React from 'react'
 
 function ClassForm() {
 return( 
-    <h1>hello</h1>)
+    <form>
+        <input type="text">Instructor</input>
+        <input type="text">Location</input>
+
+    </form>
+    )
 }
 export default ClassForm
