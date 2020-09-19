@@ -87,6 +87,18 @@ export default function SimpleSelect() {
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
                 </FormControl>
+                <form className={classes.container} noValidate>
+                    <TextField
+                        id="datetime-local"
+                        label="Due Date"
+                        type="datetime-local"
+                        defaultValue="2020-01-01T11:59"
+                        className={classes.textField}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </form>
             </div>
         );
     }
