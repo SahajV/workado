@@ -4,8 +4,10 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
 import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
+import TextField from '@material-ui/core/TextField';
 import useUser from "../_hooks/useUser";
 
 const BootstrapInput = withStyles((theme) => ({
@@ -87,6 +89,19 @@ export default function SimpleSelect() {
                         <MenuItem value={30}>Thirty</MenuItem>
                     </Select>
                 </FormControl>
+                <form className={classes.container} noValidate>
+                    <TextField
+                        id="datetime-local"
+                        label="Due Date"
+                        type="datetime-local"
+                        defaultValue="2020-01-01T11:59"
+                        className={classes.textField}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </form>
+                <Button variant="contained">Submit</Button>
             </div>
         );
     }
