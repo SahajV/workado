@@ -10,7 +10,9 @@ export default function Testing() {
   
   return isLoggedIn() ? (
     <div>
-        <NavbarInstance />
+        <ClassForm />
+        <ToDoForm />
+      <Link to="/logout">sign out.</Link>
     </div>
   ) : (
       <div>
