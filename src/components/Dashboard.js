@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import useUser from "../_hooks/useUser";
-import ClassModal from "./ClassModal"
+import RsModal from "./RsModal"
 
 export default function Dashboard() {
   const { isLoggedIn, userState } = useUser();
   return isLoggedIn() ? (
     <div>
-        <ClassModal />
+        <RsModal />
     </div>
   ) : (
       <div>
