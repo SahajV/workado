@@ -4,6 +4,7 @@ import useUser from "../_hooks/useUser";
 
 
 function PoolClasses(props) {
+    let id = props.id
     const userState = useUser();
     var users = db.collection("users");
     var results = [];
