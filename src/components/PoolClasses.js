@@ -1,37 +1,37 @@
-import {auth, google, db} from "../Firebase"
-import { useState } from 'react'
-import useUser from "../_hooks/useUser";
-import useAsync from "react-async"
+import { auth, google, db } from "../Firebase"
+import React, { useState, useEffect } from "react"
 
-function PoolClasses(props) {
-    let id = props.id
-
-    try {
-        var results = {};
-        db.collection("users").doc(id).get().then((doc) => {
-            for(var key in doc.data().classes) {
+class PoolClasses extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { data: [] };
+    }
+    async componentDidMount() {
+        let results = {};
+        await db.collection("users").doc(this.props.id).get().then((doc) => {
+            for (var key in doc.data().classes) {
                 results[key] = doc.data().classes[key]
             }
-        }) 
-        console.log("dsffsdf" + JSON.stringify(results))
-        return(
-            JSON.stringify(results)
-        )
-    }
-    catch (error) {
-       
-    }
-    console.log(results)
+        })
+        await this.setState({ data: [results] })
+        console.log(this.state.data[0])
 
+
+    }
+
+    render() {
+        return (
+            <div>
+                <ul>
+                    {this.state.data.map(key => (
+                        <li>
+                            {JSON.stringify(key)}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
 }
-async function databaseQuery(id) {
-    var results = {};
-    await db.collection("users").doc(id).get().then((doc) => {
-        for(var key in doc.data().classes) {
-            results[key] = doc.data().classes[key]
-        }
-    })
-    console.log(results + "async")
-    return results
-}
-export default PoolClasses
+
+export default PoolClasses;
