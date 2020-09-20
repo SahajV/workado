@@ -31,7 +31,7 @@ export default class ToDoModal extends React.Component {
               <Modal.Title>Add Assignment</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ToDoForm id={this.props.id}/>
+              <ToDoForm id={this.props.id} close={this.close}/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.close} color="green" appearance="primary">

@@ -8,6 +8,7 @@ function ToDoForm(props) {
     const mySubmitHandler = (event) => {
         event.preventDefault();
         alert("You are submitting " + JSON.stringify(toDoItem));
+        props.close()
     }
     const myChangeHandler = (event) => {
         console.log(event.target.value)
