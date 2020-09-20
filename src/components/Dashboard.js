@@ -38,7 +38,7 @@ export default function Dashboard() {
                                 <PanelGroup accordion defaultActiveKey={1} bordered>
                                     <Panel header="Assignments" eventKey={1}>
                                         you do not have any assignments, please add some:
-                                        <ToDoModal />
+                                        <ToDoModal id={userState.uid}/>
                                     </Panel>
                                     <Panel header="List of All Classes" eventKey={2}>
                                         you do not have a next class, please add a class:
@@ -50,7 +50,7 @@ export default function Dashboard() {
                         <Row className="show-grid">
                             <Col xs={7}>
                                 <Panel header="Google Calender" shaded>
-                                    the calender should be here
+                                    the calender should be here for {userState.displayName}
                                 </Panel>
                             </Col>
                         </Row>

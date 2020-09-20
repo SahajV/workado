@@ -1,13 +1,13 @@
 import React from 'react'
 import { Button, Icon, ButtonGroup } from 'rsuite';
-import {auth, google, db} from "../Firebase"
+import { auth, google, db } from "../Firebase"
 import useUser from "../_hooks/useUser";
-
+import { Link } from "react-router-dom";
 
 class ClassForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { class: '', instructor: '', location: '', startTime: '', endTime: '', dow: '', period: ''};
+        this.state = { class: '', instructor: '', location: '', startTime: '', endTime: '', dow: '', period: '' };
     }
     mySubmitHandler = (event) => {
         event.preventDefault();
@@ -22,10 +22,11 @@ class ClassForm extends React.Component {
         this.setState({ [event.target.id]: event.target.value })
     }
     render() {
-        return (
+        const { isLoggedIn, userState } = useUser();
+        return isLoggedIn() ? (
             <form onSubmit={this.mySubmitHandler}>
                 <a>{JSON.stringify(this.state)}</a>
-                <p>Class:</p>
+                <p>Class: {userState.uid}</p>
                 <input
                     id='class'
                     type='text'
@@ -74,11 +75,15 @@ class ClassForm extends React.Component {
                 <br></br>
                 <br></br>
                 <ButtonGroup>
-                <Button appearance="primary" color = "red" type="submit"><Icon icon="angle-double-right"  /> Submit</Button>
-                <Button appearance="ghost" color = "red" type="reset"><Icon icon="angle-double-right"  /> Clear</Button>
+                    <Button appearance="primary" color="red" type="submit"><Icon icon="angle-double-right" /> Submit</Button>
+                    <Button appearance="ghost" color="red" type="reset"><Icon icon="angle-double-right" /> Clear</Button>
                 </ButtonGroup>
             </form>
-        );
+        ) : (
+                <div>
+                    Insuffiecent permissions, please sign in <Link to="/signin">here</Link>
+                </div>
+            );
     }
 }
 
