@@ -31,7 +31,7 @@ export default function Dashboard() {
                             <Col xs={7}>
                                 <Panel header="Your Next Class is" shaded>
                                     you do not have a next class, please add a class:
-                                    <RsModal />
+                                    <RsModal id={userState.uid}/>
                                 </Panel>
                             </Col>
                             <Col xs={10}>
@@ -42,7 +42,7 @@ export default function Dashboard() {
                                     </Panel>
                                     <Panel header="List of All Classes" eventKey={2}>
                                         you do not have a next class, please add a class:
-                                    <RsModal />
+                                    <RsModal id={userState.uid}/>
                                     </Panel>
                                 </PanelGroup>
                             </Col>

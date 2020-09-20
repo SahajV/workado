@@ -29,7 +29,7 @@ class RsModal extends React.Component {
               <Modal.Title>Add Class</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ClassForm />
+              <ClassForm id={this.props.id}/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.close} color="green" appearance="primary">

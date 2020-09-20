@@ -91,6 +91,7 @@ export default class ClassForm extends React.Component {
         });
     }
     myChangeHandler = (event) => {
+        // console.log(this.props.id)
         classTimesCounter = 1;
         console.log(event)
         formObj[event.target.id] = event.target.value
