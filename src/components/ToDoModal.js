@@ -2,7 +2,7 @@ import { Modal, Button, ButtonToolbar} from 'rsuite';
 import * as React from "react";
 import ToDoForm from './ToDoForm'
 
-class ToDoModal extends React.Component {
+export default class ToDoModal extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -44,5 +44,3 @@ class ToDoModal extends React.Component {
       );
     }
   }
-  
-export default ToDoModal
