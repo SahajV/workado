@@ -1,10 +1,11 @@
 import React, { isValidElement } from 'react'
 import { interpolate } from 'react-spring';
 import { Button, Icon, ButtonGroup } from 'rsuite';
-import {auth, google, db} from "../Firebase"
+import {db} from "../Firebase";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
 import useUser from "../_hooks/useUser";
+import { Link } from "react-router-dom";
 import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 
 let classTimesCounter = 1;

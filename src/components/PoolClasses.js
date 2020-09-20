@@ -1,12 +1,14 @@
 import {auth, google, db} from "../Firebase"
+import { useState } from 'react'
 import useUser from "../_hooks/useUser";
 
 
-function PoolClasses() {
-    const {userState} = useUser();
-    var classes = db.collection("classes");
+function PoolClasses(props) {
+    let id = props.id
+    const userState = useUser();
+    var users = db.collection("users");
     var results = [];
-    results.push(classes.where("name", "==", "Geosystems"))
+    console.log(props.id) 
     return(
         results
     )

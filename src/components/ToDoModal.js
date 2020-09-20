@@ -1,6 +1,7 @@
 import { Modal, Button, ButtonToolbar} from 'rsuite';
 import * as React from "react";
 import ToDoForm from './ToDoForm'
+import useUser from "../_hooks/useUser";
 
 export default class ToDoModal extends React.Component {
     constructor(props) {
@@ -18,10 +19,11 @@ export default class ToDoModal extends React.Component {
       this.setState({ show: true });
     }
     render() {
+      // console.log(this.props.id)
       return (
         <div className="modal-container">
           <ButtonToolbar>
-            <Button color="green" onClick={this.open}> Add Class</Button>
+            <Button color="green" onClick={this.open}> Add Assignment</Button>
           </ButtonToolbar>
   
           <Modal show={this.state.show} onHide={this.close}>
@@ -29,7 +31,7 @@ export default class ToDoModal extends React.Component {
               <Modal.Title>Add Assignment</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <ToDoForm />
+              <ToDoForm id={this.props.id}/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.close} color="green" appearance="primary">
