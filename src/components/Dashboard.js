@@ -4,8 +4,11 @@ import useUser from "../_hooks/useUser";
 import RsModal from "./RsModal"
 import ToDoModal from "./ToDoModal"
 import NavbarInstance from "./NavbarInstance";
+import Clock from 'react-live-clock';
 
 import { Container, Header, Content, Grid, Row, Col, Panel, PanelGroup} from 'rsuite';
+
+var time = Date().toLocaleString();
 
 export default function Dashboard() {
     const { isLoggedIn, userState } = useUser();
@@ -15,13 +18,15 @@ export default function Dashboard() {
                 <Header>
                     <NavbarInstance />
                 </Header>
+                
                 <Content style={{ padding: 20 }}>
                     <Grid fluid>
                         <Row className="show-grid">
                             <Col xs={7}>
                                 <Panel header="Current Time" shaded>
-                                    the times is dalfjdlasjf;lskdajf;lsdaf;jdsla
+                                    <Clock format="HH:mm:ss" ticking timezone={'US/Eastern'} />
                                 </Panel>
+                                
                             </Col>
                             <Col xs={7}>
                                 <Panel header="Your Next Class is" shaded>
