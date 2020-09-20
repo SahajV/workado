@@ -56,7 +56,7 @@ export default class ClassForm extends React.Component {
         event.preventDefault();
         let classData = JSON.parse(JSON.stringify(formObj));  // a copy
         formObj = {};
-        const doc = db.collection("users").doc(props.id);
+        const doc = db.collection("users").doc(this.props.id);
         doc.get().then((d) => {
             let classes = d.data().classes;
             let obj = {};
