@@ -9,6 +9,7 @@ import 'rsuite/dist/styles/rsuite-default.css';
 
 export default function Testing() {
   const { isLoggedIn, userState } = useUser();
+
   
   return isLoggedIn() ? (
     <div>
@@ -17,6 +18,7 @@ export default function Testing() {
 
       <PoolClasses id={userState.uid}/>
       <Link to="/logout">sign out.</Link>
+      
     </div>
   ) : (
       <div>

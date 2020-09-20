@@ -88,11 +88,10 @@ export default class ClassForm extends React.Component {
             }
             classes[classData.period] = obj;
             doc.set({'classes': classes}, {merge: true});
-            this.props.close()
+            this.props.close();
         });
     }
     myChangeHandler = (event) => {
-        // console.log(this.props.id)
         classTimesCounter = 1;
         console.log(event)
         formObj[event.target.id] = event.target.value
