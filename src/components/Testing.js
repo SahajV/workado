@@ -17,8 +17,7 @@ export default function Testing() {
       <ToDoForm /> */}
 
       <PoolClasses id={userState.uid}/>
-      <Link to="/logout">sign out.</Link>
-      
+      {/* <Link to="/logout">sign out.</Link> */}
     </div>
   ) : (
       <div>

@@ -11,7 +11,6 @@
     "material-ui": "^0.20.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-async": "^10.0.1",
     "react-dom": "^16.13.1",
     "react-live-clock": "^4.0.5",
     "react-router-dom": "^5.2.0",

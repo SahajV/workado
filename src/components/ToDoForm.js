@@ -22,8 +22,6 @@ export default class ToDoForm extends React.Component {
         let assignmentData = JSON.parse(JSON.stringify(formObj));  // a copy
         formObj = {};
         const doc = db.collection("users").doc(this.props.id);
-        console.log('monkey')
-        console.log('mother' + assignmentData)
         doc.get().then((d) => {
             let assignments = d.data().assignments;
             console.log('assign' + assignments)
@@ -32,8 +30,7 @@ export default class ToDoForm extends React.Component {
             obj.class = assignmentData.class;
             obj.date = assignmentData.date;
             obj.timeDue = assignmentData.timeDue;
-            assignments.push(obj)
-            console.log(assignments)
+            assignments.push(obj);
             doc.set({ 'assignments': assignments }, { merge: true });
             this.props.close();
         });
